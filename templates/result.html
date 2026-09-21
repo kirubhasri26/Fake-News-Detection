@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %}Analysis Result - AI-Based Fake News Detection System{% endblock %}
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+
+        <div class="card shadow-sm p-4 mb-4 text-center">
+            <h2 class="mb-3">Analysis Result</h2>
+            <p class="text-muted mb-1">News Title</p>
+            <h5 class="mb-4">{{ title }}</h5>
+
+            <div class="result-badge mb-3 {{ 'result-real' if prediction == 'REAL' else 'result-fake' }}">
+                <i class="fa-solid {{ 'fa-circle-check' if prediction == 'REAL' else 'fa-circle-xmark' }} me-2"></i>
+                {{ prediction }}
+            </div>
+
+            <h6 class="text-muted">Confidence Score</h6>
+            <h3 class="mb-4">{{ confidence }}%</h3>
+
+            <div class="progress mb-4" style="height: 12px;">
+                <div class="progress-bar {{ 'bg-success' if prediction == 'REAL' else 'bg-danger' }}"
+                     role="progressbar" style="width: {{ confidence }}%;"></div>
+            </div>
+
+            <h6>Result Interpretation</h6>
+            {% if prediction == 'REAL' %}
+            <p class="text-muted">The submitted news content has been classified as <strong>Real</strong> by the trained machine-learning model based on textual patterns learned from the training dataset.</p>
+            {% else %}
+            <p class="text-muted">The submitted news content has been classified as <strong>Fake</strong> by the trained machine-learning model based on textual patterns learned from the training dataset.</p>
+            {% endif %}
+
+            <div class="alert alert-secondary text-start">
+                <strong>Important Note:</strong> The classification represents the model's prediction and does not
+                guarantee that the information is factually true or false. Users should verify the information
+                through trusted and authoritative sources.
+            </div>
+        </div>
+
+        <div class="card shadow-sm p-4 mb-4">
+            <h5 class="mb-3">AI Analysis Summary</h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Prediction</span><strong>{{ prediction }}</strong>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Confidence</span><strong>{{ confidence }}%</strong>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Input Length</span><strong>{{ input_length }} characters</strong>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Model</span><strong>TF-IDF + Logistic Regression</strong>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Status</span><strong class="text-success">Analysis completed successfully</strong>
+                </li>
+            </ul>
+        </div>
+
+        <div class="text-center">
+            <a href="{{ url_for('predict') }}" class="btn btn-primary btn-lg">Check Another News</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

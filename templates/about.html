@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block title %}About - AI-Based Fake News Detection System{% endblock %}
+{% block content %}
+
+<h2 class="mb-4">About the Project</h2>
+
+<div class="card shadow-sm p-4 mb-4">
+    <p>This project analyzes the textual content of a news article and predicts whether it is likely to be
+    <strong>Real</strong> or <strong>Fake</strong>, using a machine-learning model trained on labeled news
+    examples. It is intended as an educational demonstration of applying Natural Language Processing (NLP)
+    and Machine Learning to the problem of misinformation detection.</p>
+</div>
+
+<div class="card shadow-sm p-4 mb-4">
+    <h5>What is Fake News?</h5>
+    <p class="text-muted">Fake news refers to false or misleading information presented as legitimate news
+    content. It can be spread intentionally to deceive readers or unintentionally through the rapid sharing
+    of unverified claims, particularly on social media platforms.</p>
+</div>
+
+<div class="card shadow-sm p-4 mb-4">
+    <h5>Why Fake News Detection Matters</h5>
+    <p class="text-muted">The rapid growth of digital media and social networks has made it easier for
+    misinformation to spread quickly and widely. Fake news can influence public opinion, damage reputations,
+    and interfere with informed decision-making. Automated detection tools can help flag potentially
+    misleading content for further human review.</p>
+</div>
+
+<div class="card shadow-sm p-4 mb-4">
+    <h5>Technologies Used</h5>
+    <div class="row">
+        <div class="col-md-6">
+            <ul>
+                <li>Python</li>
+                <li>Flask</li>
+                <li>Natural Language Processing (NLP)</li>
+                <li>TF-IDF Vectorization</li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <ul>
+                <li>Logistic Regression</li>
+                <li>SQLite</li>
+                <li>HTML, CSS, JavaScript</li>
+                <li>Bootstrap</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="card shadow-sm p-4 mb-4">
+    <h5>Machine Learning Workflow</h5>
+    <p class="text-muted mb-2">
+        News Text &rarr; Text Preprocessing &rarr; TF-IDF &rarr; Logistic Regression &rarr; Prediction &rarr; Confidence Score
+    </p>
+    <p class="text-muted mb-0">The <strong>confidence score</strong> reflects the probability the trained model
+    assigns to its predicted class. A higher score means the model's learned patterns more strongly match the
+    submitted text — it is a measure of model certainty, not a guarantee of factual accuracy.</p>
+</div>
+
+<div class="card shadow-sm p-4 mb-4">
+    <h5>Limitations</h5>
+    <ol class="text-muted mb-0">
+        <li>The model depends on the quality and coverage of its training dataset.</li>
+        <li>The system analyzes textual patterns rather than independently verifying facts.</li>
+        <li>Confidence scores represent model confidence, not factual certainty.</li>
+        <li>Newly emerging topics may not be well represented in the training data.</li>
+        <li>The system should not replace professional fact-checking or trusted news sources.</li>
+    </ol>
+</div>
+
+<div class="card shadow-sm p-4">
+    <h5>Future Enhancements</h5>
+    <ul class="text-muted mb-0">
+        <li>Larger and more diverse datasets</li>
+        <li>Real-time news verification</li>
+        <li>Source credibility analysis</li>
+        <li>Explainable AI techniques</li>
+        <li>Multilingual fake news detection</li>
+        <li>Transformer-based NLP models</li>
+        <li>Integration with trusted fact-checking databases</li>
+        <li>Advanced deep-learning models</li>
+    </ul>
+</div>
+
+{% endblock %}

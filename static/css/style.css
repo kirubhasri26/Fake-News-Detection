@@ -1,0 +1,103 @@
+:root {
+    --primary-dark: #0f172a;
+    --primary: #2563eb;
+    --accent: #0ea5e9;
+    --surface: #f8fafc;
+}
+
+body {
+    background-color: var(--surface);
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1e293b;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app-main {
+    flex: 1;
+}
+
+/* Navbar */
+.app-navbar {
+    background: linear-gradient(90deg, var(--primary-dark), #1e3a8a);
+}
+
+.app-navbar .nav-link {
+    font-weight: 500;
+}
+
+.app-navbar .nav-link:hover {
+    color: var(--accent) !important;
+}
+
+/* Hero section */
+.hero {
+    background: linear-gradient(135deg, var(--primary-dark), #1e3a8a);
+    color: #ffffff;
+}
+
+.hero .text-muted {
+    color: #cbd5e1 !important;
+}
+
+/* Info cards on home page */
+.info-card {
+    background: #ffffff;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+    transition: transform 0.15s ease-in-out;
+}
+
+.info-card:hover {
+    transform: translateY(-3px);
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 0.75rem;
+}
+
+/* Result badge */
+.result-badge {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    border-radius: 2rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.result-real {
+    background-color: #dcfce7;
+    color: #15803d;
+}
+
+.result-fake {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+/* Footer */
+.app-footer {
+    background-color: var(--primary-dark);
+    color: #e2e8f0;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8;
+    border-color: #1d4ed8;
+}
+
+/* Responsive tables */
+.table-responsive {
+    border-radius: 0.5rem;
+    overflow: hidden;
+}

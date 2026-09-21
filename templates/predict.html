@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Check News - AI-Based Fake News Detection System{% endblock %}
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card shadow-sm p-4">
+            <h2 class="mb-2">Analyze News Content</h2>
+            <p class="text-muted mb-4">Enter the news headline and article content below. The system will analyze the text using a trained machine-learning model.</p>
+
+            <form method="POST" action="{{ url_for('predict') }}" id="predictForm">
+                <div class="mb-3">
+                    <label for="title" class="form-label">News Headline</label>
+                    <input type="text" class="form-control" id="title" name="title" maxlength="500"
+                           placeholder="Enter the news headline" value="{{ title or '' }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="content" class="form-label">News Content</label>
+                    <textarea class="form-control" id="content" name="content" rows="8"
+                              placeholder="Paste or enter the complete news article here..." required>{{ content or '' }}</textarea>
+                    <div class="form-text">For better analysis, provide sufficient and complete news content.</div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg w-100" id="analyzeBtn">
+                    <i class="fa-solid fa-magnifying-glass me-1"></i> Analyze News
+                </button>
+
+                <div id="loadingMessage" class="text-center mt-3 d-none">
+                    <div class="spinner-border text-primary" role="status"></div>
+                    <p class="mt-2 mb-0">Analyzing news content...</p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

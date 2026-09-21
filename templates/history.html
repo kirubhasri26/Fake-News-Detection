@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Prediction History - AI-Based Fake News Detection System{% endblock %}
+{% block content %}
+
+<h2 class="mb-2">Prediction History</h2>
+<p class="text-muted mb-4">A record of previously analyzed news articles and their results.</p>
+
+{% if db_error %}
+<div class="alert alert-danger">{{ db_error }}</div>
+{% elif records and records|length > 0 %}
+<div class="table-responsive">
+    <table class="table table-hover align-middle bg-white shadow-sm">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>News Headline</th>
+                <th>Prediction</th>
+                <th>Confidence</th>
+                <th>Date &amp; Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in records %}
+            <tr>
+                <td>{{ row['id'] }}</td>
+                <td>{{ row['title'] }}</td>
+                <td>
+                    <span class="badge {{ 'bg-success' if row['prediction'] == 'REAL' else 'bg-danger' }}">
+                        {{ row['prediction'] }}
+                    </span>
+                </td>
+                <td>{{ row['confidence'] }}%</td>
+                <td>{{ row['created_at'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<div class="alert alert-info">
+    No prediction history is available yet. Analyze a news article to create your first prediction record.
+</div>
+<div class="text-center mt-3">
+    <a href="{{ url_for('predict') }}" class="btn btn-primary">Check News Now</a>
+</div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Home - AI-Based Fake News Detection System{% endblock %}
+{% block content %}
+
+<section class="hero rounded-4 p-5 mb-5 text-center">
+    <h1 class="display-6 fw-bold mb-3">AI-Based Fake News Detection System</h1>
+    <p class="lead mb-2">An intelligent NLP-based system for analyzing news content and identifying potentially misleading or fake information.</p>
+    <p class="mb-4 text-muted">This system uses Natural Language Processing and Machine Learning techniques to analyze the textual patterns of news content and classify it as Real or Fake.</p>
+    <a href="{{ url_for('predict') }}" class="btn btn-primary btn-lg me-2">
+        <i class="fa-solid fa-magnifying-glass me-1"></i> Check News
+    </a>
+    <a href="{{ url_for('about') }}" class="btn btn-outline-light btn-lg">Learn More</a>
+</section>
+
+<section class="mb-5">
+    <h2 class="text-center mb-4">How It Works</h2>
+    <div class="row g-4 text-center">
+        <div class="col-6 col-md-3">
+            <div class="p-4 h-100 info-card">
+                <i class="fa-solid fa-pen-to-square fa-2x mb-3 text-primary"></i>
+                <h6>1. Enter News</h6>
+                <p class="small text-muted mb-0">Provide a headline and the article content.</p>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="p-4 h-100 info-card">
+                <i class="fa-solid fa-magnifying-glass-chart fa-2x mb-3 text-primary"></i>
+                <h6>2. Analyze Content</h6>
+                <p class="small text-muted mb-0">The text is processed and converted into features.</p>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="p-4 h-100 info-card">
+                <i class="fa-solid fa-robot fa-2x mb-3 text-primary"></i>
+                <h6>3. Generate Prediction</h6>
+                <p class="small text-muted mb-0">A trained ML model classifies the content.</p>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="p-4 h-100 info-card">
+                <i class="fa-solid fa-clipboard-check fa-2x mb-3 text-primary"></i>
+                <h6>4. Review Result</h6>
+                <p class="small text-muted mb-0">View the prediction and confidence score.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation me-2"></i>
+    <strong>Disclaimer:</strong> This system provides a machine-learning-based prediction and should not be
+    considered a definitive fact-checking authority. Users should verify important information using
+    reliable sources.
+</div>
+
+{% endblock %}
